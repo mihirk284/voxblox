@@ -66,6 +66,16 @@ SimpleTsdfVisualizer::SimpleTsdfVisualizer(const ros::NodeHandle& nh_private)
     tsdf_mesh_color_mode_ = ColorMode::kLambert;
   } else if (color_mode == "gray") {
     tsdf_mesh_color_mode_ = ColorMode::kGray;
+  } else if (color_mode == "blue") {
+    tsdf_mesh_color_mode_ = ColorMode::kBlue;
+  } else if (color_mode == "orange") {
+    tsdf_mesh_color_mode_ = ColorMode::kOrange;
+  } else if (color_mode == "red") {
+    tsdf_mesh_color_mode_ = ColorMode::kRed;
+  } else if (color_mode == "green") {
+    tsdf_mesh_color_mode_ = ColorMode::kGreen;
+  } else if (color_mode == "yellow") {
+    tsdf_mesh_color_mode_ = ColorMode::kYellow;
   } else {
     ROS_FATAL_STREAM("Undefined mesh coloring mode: " << color_mode);
     ros::shutdown();

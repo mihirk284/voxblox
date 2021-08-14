@@ -139,6 +139,16 @@ VoxbloxEvaluator::VoxbloxEvaluator(const ros::NodeHandle& nh,
       color_mode_ = ColorMode::kNormals;
     } else if (color_mode == "lambert") {
       color_mode_ = ColorMode::kLambert;
+    } else if (color_mode == "blue") {
+      color_mode_ = ColorMode::kBlue;
+    } else if (color_mode == "red") {
+      color_mode_ = ColorMode::kRed;
+    } else if (color_mode == "orange") {
+      color_mode_ = ColorMode::kOrange;
+    } else if (color_mode == "green") {
+      color_mode_ = ColorMode::kGreen;
+    } else if (color_mode == "yellow") {
+      color_mode_ = ColorMode::kYellow;
     } else {  // Default case is gray.
       color_mode_ = ColorMode::kGray;
     }

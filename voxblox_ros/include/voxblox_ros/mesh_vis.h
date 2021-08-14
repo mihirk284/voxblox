@@ -46,6 +46,11 @@ enum ColorMode {
   kHeight,
   kNormals,
   kGray,
+  kBlue,
+  kRed,
+  kYellow,
+  kGreen,
+  kOrange,
   kLambert,
   kLambertColor
 };
@@ -64,6 +69,16 @@ inline ColorMode getColorModeFromString(const std::string& color_mode_string) {
       return ColorMode::kLambert;
     } else if (color_mode_string == "lambert_color") {
       return ColorMode::kLambertColor;
+    } else if (color_mode_string == "blue") {
+      return ColorMode::kBlue;
+    } else if (color_mode_string == "red") {
+      return ColorMode::kRed;
+    } else if (color_mode_string == "green") {
+      return ColorMode::kGreen;
+    } else if (color_mode_string == "yellow") {
+      return ColorMode::kYellow;
+    } else if (color_mode_string == "orange") {
+      return ColorMode::kOrange;
     } else {  // Default case is gray.
       return ColorMode::kGray;
     }
@@ -141,6 +156,32 @@ inline std_msgs::ColorRGBA getVertexColor(const Mesh::ConstPtr& mesh,
     case kLambertColor:
       lambertColorFromColorAndNormal(mesh->colors[index], mesh->normals[index],
                                      &color_msg);
+      break;
+    case kBlue:
+      color_msg.b = 1.0;
+      color_msg.r = color_msg.g = 0.0;
+      color_msg.a = 1.0;
+      break;
+    case kRed:
+      color_msg.r = 1.0;
+      color_msg.g = color_msg.b = 0.0;
+      color_msg.a = 1.0;
+      break;
+    case kYellow:
+      color_msg.r = color_msg.g = 1.0;
+      color_msg.b = 0.0;
+      color_msg.a = 1.0;
+      break;
+    case kGreen:
+      color_msg.g = 1.0;
+      color_msg.r = color_msg.b = 0.0;
+      color_msg.a = 1.0;
+      break;
+    case kOrange:
+      color_msg.r = 1.0;
+      color_msg.g = 0.647;
+      color_msg.b = 0.0;
+      color_msg.a = 1.0;
       break;
     case kGray:
       color_msg.r = color_msg.g = color_msg.b = 0.5;
